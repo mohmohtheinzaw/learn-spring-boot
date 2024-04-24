@@ -30,5 +30,9 @@ public class Admin {
     @Column(name = "updatedAt")
     @UpdateTimestamp
     private Date updatedAt;
+
+    public UUID getId() {
+        return id;
+    }
 }
 

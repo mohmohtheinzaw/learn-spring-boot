@@ -4,6 +4,7 @@ import com.test.test.dto.AdminDto;
 import com.test.test.model.Admin;
 import com.test.test.model.User;
 import com.test.test.service.AuthService;
+import com.test.test.utils.config.JwtUtil;
 import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -33,6 +34,10 @@ public class AuthController {
     @PostMapping("/admin/login")
     public Admin loginAdmin(@Valid @RequestBody AdminDto dto){
         Admin admin = authService.loginAdmin(dto);
+        if(admin != null){
+           String token =  JwtUtil.generateToken(admin.getId().toString());
+            System.out.println(token);
+        }
         return admin;
     }
 
