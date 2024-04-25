@@ -2,10 +2,9 @@ package com.test.test.controller;
 
 import com.test.test.dto.AdminDto;
 import com.test.test.model.Admin;
-import com.test.test.model.User;
 import com.test.test.service.AuthService;
-import com.test.test.utils.config.JwtUtil;
 import jakarta.validation.Valid;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/api/auth")
 public class AuthController {
+
     public AuthService authService;
     public AuthController(AuthService authService){
         this.authService = authService;
@@ -31,14 +31,16 @@ public class AuthController {
         return createdAdmin;
     }
 
-    @PostMapping("/admin/login")
-    public Admin loginAdmin(@Valid @RequestBody AdminDto dto){
-        Admin admin = authService.loginAdmin(dto);
-        if(admin != null){
-           String token =  JwtUtil.generateToken(admin.getId().toString());
-            System.out.println(token);
-        }
-        return admin;
-    }
+//    @PostMapping("/admin/login")
+//    public Admin loginAdmin(@Valid @RequestBody AdminDto dto){
+//        Admin admin = authService.loginAdmin(dto);
+//        if(admin != null){
+//          // String token = jwtService.generateToken(filter.);
+//          //  System.out.println(token);
+//        }
+//        return admin;
+//    }
 
 }
+
+

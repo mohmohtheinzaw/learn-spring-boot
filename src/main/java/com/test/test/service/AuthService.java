@@ -33,11 +33,11 @@ public class AuthService {
         return adminRepository.save(admin);
     }
 
-    public Admin loginAdmin(AdminDto data){
-        System.out.println("this is username" + data.getUsername());
-        Admin admin = adminRepository.findByUsernameAndPassword(data.getUsername(), data.getPassword()).orElseThrow(()-> new NoResultException("Admin not found with this credential"));
-        return admin;
-    }
+//    public Admin loginAdmin(AdminDto data){
+//        System.out.println("this is username" + data.getUsername());
+//        Admin admin = adminRepository.findByUsernameAndPassword(data.getUsername(), data.getPassword()).orElseThrow(()-> new NoResultException("Admin not found with this credential"));
+//        //return admin;
+//    }
 
 //    public User loginUser(String phone){
 //        User data = userRepository.findWithPhone(phone).orElseThrow(()-> new NoResultException("User not found with this phone"));
